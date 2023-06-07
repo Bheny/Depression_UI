@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depression Analysis</title>
+  <script src="tailwind.js"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">Depression Analysis</h1>
+
+    <!-- Image Upload Section -->
+    <div class="bg-white rounded-md p-4 mb-8">
+      <h2 class="text-xl font-bold mb-4">Upload Image</h2>
+      <input type="file" id="image-upload" accept="image/*" class="mb-4">
+      <button id="analyze-button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Analyze Image
+      </button>
+    </div>
+
+   <!-- Live Camera Section -->
+   <div class="bg-white rounded-md p-4 mb-8">
+    <h2 class="text-xl font-bold mb-4">Live Camera</h2>
+    <div id="camera-feed" class="mb-4">
+      <video id="videoElement" width="100%" height="auto" autoplay playsinline></video>
+    </div>
+    <button id="capture-button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Capture Image
+    </button>
+    <button id="analyze-live-button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Analyze Live
+    </button>
+  </div>
+
+    <!-- Analysis Results Section -->
+    <div id="results-section" class="bg-white rounded-md p-4 mb-8 hidden">
+      <h2 class="text-xl font-bold mb-4">Analysis Results</h2>
+      <p id="results-text" class="text-gray-700 mb-4">
+        <!-- Display the analysis results here -->
+      </p>
+      <button id="reset-button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Reset
+      </button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+     // Define global variables
+     let videoElement;
+    let stream;
+
+    // Function to start the live camera
+    function startLiveCamera() {
+      // Access the user's camera
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (mediaStream) {
+          stream = mediaStream;
+          videoElement.srcObject = mediaStream;
+        })
+        .catch(function (error) {
+          console.log('Error accessing camera:', error);
+        });
+    }
+    
+    // Handle analyze button click for live camera
+    $('#analyze-live-button').on('click', function () {
+      // Start the live camera
+      startLiveCamera();
+    });
+    // Handle image upload
+    $('#image-upload').on('change', function () {
+      // Perform analysis on the uploaded image
+      // Display results in the analysis results section
+    });
+
+    // Handle analyze button click for uploaded image
+    $('#analyze-button').on('click', function () {
+      // Perform analysis on the uploaded image
+      // Display results in the analysis results section
+    });
+
+    // Handle capture button click for live camera
+    $('#capture-button').on('click', function () {
+      // Capture an image from the live camera feed
+      // Perform analysis on the captured image
+      // Display results in the analysis results section
+    });
+
+    // Handle analyze button click for live camera
+    $('#analyze-live-button').on('click', function () {
+
+     });
+ 
+    </script>
