@@ -99,7 +99,7 @@ const SideBar = () => {
 
     return (
         <div className="w-2/12  bg-[#336eec]">
-            <div className="p-4 text-center text-[#f2f3f8] font-extrabold">
+            <div className="hidden md:block p-4 text-center text-[#f2f3f8] font-extrabold">
                  <div className="text-3xl">
                      <a href="index.html">DEEPRESSION ANALYSIS PORTAL</a>
                  </div>

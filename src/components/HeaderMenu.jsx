@@ -66,7 +66,7 @@ const HeaderMenu = () => {
               className="w-8 h-8  object-center object-cover rounded-full"
               alt="profile_picture"
             />
-            <span className="text-gray-700 font-bold text-center">
+            <span className="hidden md:block text-gray-700 font-bold text-center">
               WinniFred Amuzu
             </span>
           </div>
