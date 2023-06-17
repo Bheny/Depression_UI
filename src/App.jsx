@@ -1,9 +1,8 @@
 import { useState } from "react";
 import {
-  HashRouter as Router,
   Route,
   Routes,
-  createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
@@ -17,7 +16,7 @@ import AssessmentResultsPage from "./pages/dashboard/AssessmentResultsPage";
 
 // import ContactPage from './components/ContactPage';
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<LoginPage />} />
