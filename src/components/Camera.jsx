@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import '@tensorflow/tfjs'; // Import TensorFlow.js dependencies
 import model from '../tm-my-image-model/model.json'; // Import the model.json file
@@ -7,7 +7,13 @@ import Webcam from 'react-webcam'; // Import the camera library (e.g., react-web
 
 const Camera = () => {
     const webcamRef = useRef(null);
-  
+    const [capturedImage, setCapturedImage] = useState(null);
+
+    const captureImage = () => {
+      const imageSrc = webcamRef.current.getScreenshot();
+      setCapturedImage(imageSrc);
+    };
+
     useEffect(() => {
       const loadModel = async () => {
         await tf.setBackend('webgl'); // Set the backend to use WebGL for better performance
@@ -40,6 +46,8 @@ const Camera = () => {
       <div>
         <Webcam ref={webcamRef} />
         {/* Additional camera-related UI components can be added here */}
+        {capturedImage && <img src={capturedImage} alt="Captured" />}
+      <button onClick={captureImage}>Capture Image</button>
       </div>
     );
   };
