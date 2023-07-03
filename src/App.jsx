@@ -13,6 +13,7 @@ import DashboardPageLayout from "./layouts/Dashboard";
 import QuestionnairePage from "./pages/dashboard/QuestionairePage";
 import ImageAnalysis from "./pages/dashboard/ImageAnalysis";
 import AssessmentResultsPage from "./pages/dashboard/AssessmentResultsPage";
+import Camera from "./components/Camera";
 
 // import ContactPage from './components/ContactPage';
 
@@ -25,7 +26,7 @@ const router = createHashRouter(
         element={<DashboardPageLayout />}>
           <Route path="" element={<StudentPage />} />
           <Route path="questionaire" element={<QuestionnairePage />} />
-          <Route path="analysis" element={<ImageAnalysis />} />
+          <Route path="analysis" element={<Camera />} />
           <Route path="assessment" element={<AssessmentResultsPage />} />
         </Route>
       
