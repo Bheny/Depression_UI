@@ -35,13 +35,44 @@ const Camera = () => {
       loadModel(); // Call the loadModel function when the component mounts
     }, []);
   
-    const predict = (video) => {
-      // Perform prediction using the loaded model
-      // Use TensorFlow.js methods to preprocess the video frame, if required
+    const predict = async (video) => {
+      // Preprocess the video frame if required using TensorFlow.js methods
+      // Example: Convert the video frame to a tensor
+      const frame = tf.browser.fromPixels(video);
+      const processedFrame = preprocess(frame); // Custom preprocessing function
+    
       // Run the model.predict() method on the preprocessed video frame
+      const predictions = await model.predict(processedFrame);
+    
       // Process and display the prediction results as desired
+      processPredictions(predictions); // Custom function to process predictions
     };
-  
+    
+    const preprocess = (frame) => {
+      // Implement any required preprocessing steps
+      // Example: Resize the frame to match the input size required by the model
+      const resizedFrame = tf.image.resizeBilinear(frame, [224, 224]);
+    
+      // Normalize the pixel values to a specific range, if required
+      const normalizedFrame = resizedFrame.div(255);
+    
+      // Add any other preprocessing steps based on the model's requirements
+    
+      return normalizedFrame;
+    };
+    
+    const processPredictions = (predictions) => {
+      // Process the prediction results based on your specific model and task
+      // Example: Retrieve the predicted class label and confidence scores
+      const classLabel = predictions.argMax().dataSync()[0];
+      const confidenceScores = predictions.dataSync();
+    
+      // Perform any further processing or post-processing steps as needed
+    
+      // Display the prediction results or update the UI accordingly
+      displayPredictionResults(classLabel, confidenceScores); // Custom function to display results
+    };
+    
     return (
       <div>
         <Webcam ref={webcamRef} />
