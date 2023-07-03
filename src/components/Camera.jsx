@@ -60,6 +60,16 @@ const Camera = () => {
     
       return normalizedFrame;
     };
+
+    const displayPredictionResults = (classLabel, confidenceScores) => {
+      // Display the prediction class label and confidence scores in the UI
+      console.log("Predicted class label:", classLabel);
+      console.log("Confidence scores:", confidenceScores);
+    
+      // Customize the UI display based on your application's requirements
+      // For example, update the state variables or components to show the prediction results
+    };
+    
     
     const processPredictions = (predictions) => {
       // Process the prediction results based on your specific model and task
@@ -79,6 +89,11 @@ const Camera = () => {
         {/* Additional camera-related UI components can be added here */}
         {capturedImage && <img src={capturedImage} alt="Captured" />}
       <button onClick={captureImage}>Capture Image</button>
+
+      <p>
+        class: {clas}
+        score : {confidenceScores}
+      </p>
       </div>
     );
   };
